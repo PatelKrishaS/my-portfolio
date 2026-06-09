@@ -2,26 +2,33 @@ import { useState } from "react";
 import { cn } from "../lib/utils";
 
 const skills = [
-  //Frontend
-  { name: "HTML/CSS", level: 95, category: "frontend" },
-  { name: "JavaScript", level: 90, category: "frontend" },
-  { name: "React", level: 90, category: "frontend" },
-  { name: "TypeScript", level: 85, category: "frontend" },
-  { name: "Tailwind CSS", level: 90, category: "frontend" },
-  { name: "Next.js", level: 80, category: "frontend" },
+  // Frontend
+  { name: "HTML/CSS", level: 85, category: "frontend" },
+  { name: "JavaScript", level: 80, category: "frontend" },
+  { name: "React.js", level: 80, category: "frontend" },
+  { name: "Tailwind CSS", level: 80, category: "frontend" },
+  { name: "Bootstrap", level: 75, category: "frontend" },
+  { name: "Next.js", level: 70, category: "frontend" },
+  { name: "Zustand", level: 65, category: "frontend" },
+  { name: "React Query", level: 65, category: "frontend" },
+  { name: "Redux", level: 60, category: "frontend" },
+  { name: "TypeScript", level: 60, category: "frontend" },
 
-  //Backend
-  { name: "Node.js", level: 80, category: "backend" },
-  { name: "Express", level: 75, category: "backend" },
-  { name: "MongoDB", level: 70, category: "backend" },
-  { name: "PostgreSQL", level: 65, category: "backend" },
-  { name: "MySQL", level: 70, category: "backend" },
+  // Backend
+  { name: "REST APIs", level: 80, category: "backend" },
+  { name: "Node.js", level: 75, category: "backend" },
+  { name: "Express.js", level: 75, category: "backend" },
+  { name: "MongoDB", level: 75, category: "backend" },
+  { name: "JWT Auth", level: 70, category: "backend" },
+  { name: "SQL", level: 65, category: "backend" },
+  { name: "PostgreSQL", level: 55, category: "backend" },
 
-  //Tools
-  { name: "Git/GitHub", level: 90, category: "tools" },
-  { name: "Docker", level: 60, category: "tools" },
-  { name: "Notion", level: 85, category: "tools" },
-  { name: "VS Code", level: 95, category: "tools" },
+  // Tools
+  { name: "VS Code", level: 90, category: "tools" },
+  { name: "Git/GitHub", level: 85, category: "tools" },
+  { name: "Postman", level: 75, category: "tools" },
+  { name: "Cloudinary", level: 65, category: "tools" },
+  { name: "Jira", level: 60, category: "tools" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
