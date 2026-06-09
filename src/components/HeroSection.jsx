@@ -14,7 +14,7 @@ export const HeroSection = () => {
                     I design and develop web applications using modern technologies, focusing on performance, usability, and clean code.
                 </p>
                 <div className="opacity-0 animate-fade-in-delay-4">
-                    <a href="#projects" className="cosmic-button">
+                    <a href="#project" className="cosmic-button">
                         View my Work
                     </a>
                 </div>
