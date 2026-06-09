@@ -1,4 +1,4 @@
-import { Briefcase, Code, User } from "lucide-react"
+import { Briefcase, Code, User } from "lucide-react";
 
 export const AboutSection = () => {
   return (
@@ -9,23 +9,30 @@ export const AboutSection = () => {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
-            <h3 className="text-2xl font-semibold ">Passionate Web Developer from INDIA</h3>
+            <h3 className="text-2xl font-semibold ">
+              Passionate Web Developer from INDIA
+            </h3>
             <p className="text-muted-foreground">
-              With over 1+ years of experience in MERN Stack development,
-               I specialize in creating responsive, and performant web applications using 
-               modern technologies
+              With over 1+ years of experience in MERN Stack development, I
+              specialize in creating responsive, and performant web applications
+              using modern technologies
             </p>
 
             <p className="text-muted-foreground">
-              I'm passionate about creating elegant solutions to complex problems, 
-              and I'm constantly learning new technologies and techniques to stay at the
-              forefront of the ever-evolving web landscape.
+              I'm passionate about creating elegant solutions to complex
+              problems, and I'm constantly learning new technologies and
+              techniques to stay at the forefront of the ever-evolving web
+              landscape.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
               <a href="#contact" className="cosmic-button">
                 Get In Touch
               </a>
-              <a href="" className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300">
+              <a
+                href="/Krisha_Patel_Resume.pdf"
+                download="Krisha_Patel_Resume.pdf"
+                className="px-6 py-2 rounded-full border border-primary text-primary hover:bg-primary/10 transition-colors duration-300"
+              >
                 Download CV
               </a>
             </div>
@@ -34,7 +41,7 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Code className="h-6 w-6 text-primary "/>
+                  <Code className="h-6 w-6 text-primary " />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Web Developer</h4>
@@ -48,14 +55,16 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <User className="h-6 w-6 text-primary "/>
+                  <User className="h-6 w-6 text-primary " />
                 </div>
                 <div className="text-left">
-                  <h4 className="font-semibold text-lg">MERN Stack Development</h4>
+                  <h4 className="font-semibold text-lg">
+                    MERN Stack Development
+                  </h4>
                   <p className="text-muted-foreground">
-                    Building full-stack web applications using MongoDB, Express, React, and 
-                    Node.js, with a focus on clean structure and scalable features.
-
+                    Building full-stack web applications using MongoDB, Express,
+                    React, and Node.js, with a focus on clean structure and
+                    scalable features.
                   </p>
                 </div>
               </div>
@@ -63,13 +72,14 @@ export const AboutSection = () => {
             <div className="gradient-border p-6 card-hover">
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
-                  <Briefcase className="h-6 w-6 text-primary "/>
+                  <Briefcase className="h-6 w-6 text-primary " />
                 </div>
                 <div className="text-left">
                   <h4 className="font-semibold text-lg">Project Management</h4>
                   <p className="text-muted-foreground">
-                    Managing projects from planning to execution, ensuring clean structure, 
-                    timely delivery, and clear communication throughout development.
+                    Managing projects from planning to execution, ensuring clean
+                    structure, timely delivery, and clear communication
+                    throughout development.
                   </p>
                 </div>
               </div>
@@ -78,5 +88,5 @@ export const AboutSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
