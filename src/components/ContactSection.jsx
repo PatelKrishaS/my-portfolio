@@ -11,24 +11,50 @@ import {
 import { cn } from "../lib/utils";
 import { useToast } from "../hooks/use-toast";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 export const ContactSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    from_name: "",
+    from_email: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
     setIsSubmitting(true);
 
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for your message. I'll get back to you soon",
-      });
+    emailjs
+      .send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        formData,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      )
+      .then(() => {
+        toast({
+          title: "Message sent!",
+          description: "Thank you for your message. I'll get back to you soon",
+        });
+        setFormData({ from_name: "", from_email: "", message: "" });
         setIsSubmitting(false);
-    }, 1500);
+      })
+      .catch(() => {
+        toast({
+          title: "Something went wrong!",
+          description: "Please try again or email me directly.",
+          variant: "destructive",
+        });
+        setIsSubmitting(false);
+      });
   };
+  
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
       <div className="container mx-auto max-w-5xl">
@@ -100,54 +126,50 @@ export const ContactSection = () => {
           </div>
           <div
             className="bg-card p-8 rounded-lg shadow-xs"
-            onSubmit={handleSubmit}
           >
             <h3 className="text-2xl font-semibold mb-6">Send a Message</h3>
 
-            <form action="" className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="from_name" className="block text-sm font-medium mb-2">
                   Your name
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
+                  id="from_name"
+                  name="from_name"
                   required
+                  value={formData.from_name}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="John Doe"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="from_email" className="block text-sm font-medium mb-2">
                   Your email
                 </label>
                 <input
                   type="email"
-                  id="email"
-                  name="email"
+                  id="from_email"
+                  name="from_email"
                   required
+                  value={formData.from_email}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
                   placeholder="john@gmail.com"
                 />
               </div>
               <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium mb-2"
-                >
+                <label htmlFor="message" className="block text-sm font-medium mb-2">
                   Your message
                 </label>
                 <textarea
                   id="message"
                   name="message"
                   required
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
                   placeholder="Hello, I'd like to talk about..."
                 />
@@ -159,7 +181,7 @@ export const ContactSection = () => {
                   "cosmic-button w-full flex items-center justify-center gap-2"
                 )}
               >
-                { isSubmitting? "Sending...": "Send Message"}
+                {isSubmitting ? "Sending..." : "Send Message"}
                 <Send size={16} />
               </button>
             </form>
